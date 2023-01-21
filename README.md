@@ -6,3 +6,6 @@ Testing and exploring is heavily inspired of these websites:
 - https://raddy.dev/blog/simple-user-management-system-nodejs-express-mysql-handlebars/
 - https://mozilla.github.io/nunjucks/templating.html
 
+## Styling with Tailwind elements
+- https://tailwind-elements.com/
+
