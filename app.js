@@ -25,13 +25,11 @@ app.get("/notes", async (req, res) => {
   const notes = await getNotes()
 
   let data = {
-    message: 'Hello world!',
     layout: 'layout.njk',
-    title: 'Nunjucks example'
   }
 
   // res.send('<h1> halla på deg </h1>'.concat(JSON.stringify(notes)))
-  res.render('index.njk', data)
+  res.render('index.njk')
 })
 
 app.get("/notes/:id", async (req, res) => {
