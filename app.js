@@ -14,7 +14,9 @@ app.use(cors());
 
 app.get("/notes", async (req, res) => {
   const notes = await getNotes()
+
   res.send('<h1> halla på deg </h1>'.concat(JSON.stringify(notes)))
+
 })
 
 app.get("/notes/:id", async (req, res) => {
