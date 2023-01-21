@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import nunjucks from 'nunjucks'
 
 import { getNotes, getNote, createNote } from './database.js'
 
@@ -14,11 +15,23 @@ app.use(cors());
 // Serve static files
 app.use(express.static('public'))
 
+nunjucks.configure('views', {
+  autoescape: true,
+  express: app
+})
+
+
 app.get("/notes", async (req, res) => {
   const notes = await getNotes()
 
-  res.send('<h1> halla på deg </h1>'.concat(JSON.stringify(notes)))
+  let data = {
+    message: 'Hello world!',
+    layout: 'layout.njk',
+    title: 'Nunjucks example'
+  }
 
+  // res.send('<h1> halla på deg </h1>'.concat(JSON.stringify(notes)))
+  res.render('index.njk', data)
 })
 
 app.get("/notes/:id", async (req, res) => {
