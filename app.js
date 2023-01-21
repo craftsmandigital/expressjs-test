@@ -11,6 +11,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(cors());
 
+// Serve static files
+app.use(express.static('public'))
 
 app.get("/notes", async (req, res) => {
   const notes = await getNotes()
